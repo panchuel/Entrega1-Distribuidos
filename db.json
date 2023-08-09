@@ -2,22 +2,22 @@
   "users": [
     {
       "id": 0,
-      "name": "Ricardo",
+      "name": "Andres",
       "deck": [ 2, 20, 115, 3, 419 ]
     },
     {
       "id": 1,
-      "name": "Raul",
+      "name": "Carlos",
       "deck": [ 35, 48, 10, 402, 710 ]
     },
     {
       "id": 2,
-      "name": "Rodolfo",
+      "name": "Camilo",
       "deck": [ 7, 1, 299, 399, 69 ]
     },
     {
       "id": 3,
-      "name": "Ramon",
+      "name": "Cristian",
       "deck": [ 27, 46, 727, 111, 96 ]
     }
   ]
