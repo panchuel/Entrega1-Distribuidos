@@ -17,7 +17,7 @@ public class ApiManager : MonoBehaviour
 
     [SerializeField] private TMP_InputField field;
     [SerializeField] private TMP_Text errorMessage, userName;
-    private string api = "https://rickandmortyapi.com/api/character/", server = "https://my-json-server.typicode.com/panchuel/Entrega1-Distribuidos/users";
+    private string api = "https://rickandmortyapi.com/api/character/", server = "https://my-json-server.typicode.com/panchuel/Entrega1-Distribuidos/users/";
     private int index = 0;
     private string id;
 
@@ -52,7 +52,7 @@ public class ApiManager : MonoBehaviour
         
         UnityWebRequest www = UnityWebRequest.Get(api + cards[index]);
         yield return www.SendWebRequest();
- 
+        print(www);
         if(www.result != UnityWebRequest.Result.Success) 
         {
             Debug.Log("Connection Error: " + www.error);
@@ -62,9 +62,9 @@ public class ApiManager : MonoBehaviour
         {
             if (www.responseCode == 200)
             {
-                string responseText = www.downloadHandler.text;
+                //string responseText = www.downloadHandler.text;
 
-                Character character = JsonUtility.FromJson<Character>(responseText);
+                Character character = JsonUtility.FromJson<Character>(www.downloadHandler.text);
                 characters.Add(character);
             }
             else
@@ -112,9 +112,11 @@ public class ApiManager : MonoBehaviour
 
     public void LoadUser()
     {
+        
         if(!string.IsNullOrEmpty(field.text) && int.TryParse(id, out int numericValue)) StartCoroutine(GetUser(int.Parse(id)));
         else if (string.IsNullOrEmpty(field.text)) errorMessage.text = "Type an user id to search";
-        else if (!int.TryParse(id, out int numericValue1)) errorMessage.text = "Using wrong format";
+        else if (!int.TryParse(id, out int numericValue1)) errorMessage.text = "Using wrong format"; 
+        
     }
 
     public void IdToCheck()
