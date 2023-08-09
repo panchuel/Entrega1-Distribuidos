@@ -1,9 +1,9 @@
 const cacheName = "DefaultCompany-Distribuidos Entrega 1-0.1.0";
 const contentToCache = [
     "Build/docs.loader.js",
-    "Build/docs.framework.js",
-    "Build/docs.data",
-    "Build/docs.wasm",
+    "Build/docs.framework.js.unityweb",
+    "Build/docs.data.unityweb",
+    "Build/docs.wasm.unityweb",
     "TemplateData/style.css"
 
 ];
